@@ -10,6 +10,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: HomePage(),
       debugShowCheckedModeBanner: false,
+      initialRoute: "/",
+      routes: {"/page2": (context) => SecondPage()},
     );
   }
 }
@@ -27,12 +29,9 @@ class HomePage extends StatelessWidget {
           children: [
             ElevatedButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SecondPage()),
-                );
+                Navigator.pushNamed(context, '/page2');
               },
-              child: Text('Ir usando navegación simple'),
+              child: Text('Ir usando rutas'),
             )
           ],
         ),
